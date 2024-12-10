@@ -1,0 +1,848 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+body {
+  webkit-text-size-adjust: 100%;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on, "onum", "pnum";
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+  padding: 0;
+}
+a {
+  color: gray;
+}
+.vertical-nav {
+  position: fixed;
+  background:white;
+  box-shadow: 0 0 40px #00000021;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 70px;
+}
+.vertical-nav li {
+  list-style: none;
+  display: block;
+  width: 100%;
+  border-bottom: solid 1px #f2f5ff;
+  text-align: center;
+  position: relative;
+  flex-grow: 1;
+  align-items: stretch;
+  display: flex;
+}
+.vertical-nav li:last-child {
+  border: none;
+}
+.vertical-nav li a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.vertical-nav li:hover > a {
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+.vertical-nav li:hover > a .feather {
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+.vertical-nav li:hover > .hover-menu,
+.vertical-nav li:focus-within > .hover-menu {
+  visibility: visible;
+  opacity: 1;
+  -webkit-animation: slide-down 0.2s ease-out;
+  -moz-animation: slide-down 0.2s ease-out;
+  transition: all 0.5s ease;
+  display: block;
+}
+.vertical-nav li .hover-menu {
+  background: white;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  left: 70px;
+  min-width: 200px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  box-shadow: 0 0 40px #00000021;
+}
+.vertical-nav li .hover-menu:after {
+  right: 100%;
+  top: 20%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #ffffff;
+  border-width: 10px;
+  margin-top: -10px;
+}
+.vertical-nav li .hover-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.vertical-nav li .hover-menu ul li {
+  list-style: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.vertical-nav li .hover-menu ul li a {
+  width: 100%;
+  display: block !important;
+  text-decoration: none;
+  padding: 15px 20px;
+  text-align: left;
+  height: auto !important;
+  font-weight: 400;
+}
+.vertical-nav li .hover-menu ul li a:hover {
+  background: #fafafa;
+  transition: 0.3s ease;
+}
+
+.menu-header {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #929292;
+  font-size: 13px;
+  text-align: left !important;
+  padding: 12px 20px 5px 20px;
+  font-weight: 600;
+  border-bottom: none !important;
+}
+
+.log-out a {
+  background: #1e85c9;
+  color: white;
+}
+.log-out a:hover {
+  color: #1e85c9;
+  background: white;
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+  0%{
+    opacity:0;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes slide-down {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-5%);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+.content {
+  padding: 40px;
+  color: #464646;
+  width:1170px;
+  margin:0 auto;
+}
+h1,
+h2 {
+  color:#343535;
+  font-weight: 400;
+}
+p,
+.content li {
+  color: #949494;
+  line-height: 29px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.header-image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.mt-0{
+  margin-top:0;
+}
+
+.mb-0{
+  margin-bottom:0;
+}
+
+/* Zui table (modified) - https://jsfiddle.net/zinoui/dB93J/ */
+.zui-table {
+  border: solid 1px #ddeeee;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  box-shadow: 0 0 40px #00000021;
+  margin: 50px 0;
+}
+.zui-table thead th {
+  background-color: #fff;
+  border: solid 1px #dee;
+  color: #343535;
+  border: solid 1px #f5f9f9;
+  padding: 20px;
+
+  text-align: left;
+}
+.zui-table tbody td {
+  border: solid 1px #edf1f1;
+  color: #949494;
+  font-size:16px;
+  padding: 20px;
+}
+footer{
+  padding:20px 0;
+  text-align:center;
+}
+footer p{
+  color:gray;
+  font-size:12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right, #034378, #2d4e68);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+
+.row {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+
+
+.card {
+  float: left;
+  padding: 0 1.7rem;
+  width: 50%;
+  padding-bottom: 4rem;
+
+}
+.card .menu-content {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.card .menu-content::before, .card .menu-content::after {
+  content: "";
+  display: table;
+}
+.card .menu-content::after {
+  clear: both;
+}
+.card .menu-content li {
+  display: inline-block;
+}
+.card .menu-content a {
+  color: #fff;
+}
+.card .menu-content span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  transform: translate(-50%, 0);
+}
+.card .wrapper {
+  background-color: #fff;
+  min-height: 540px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+.card .wrapper:hover .data {
+  transform: translateY(0);
+}
+.card .data {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
+}
+.card .data .content {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+}
+.card .author {
+  font-size: 12px;
+}
+
+.card .title {
+  margin-top: 10px;
+  color: black;
+}
+.card .text {
+  height: 70px;
+  margin: 0;
+}
+.card input[type=checkbox] {
+  display: none;
+}
+
+.card input[type=checkbox]:checked + .menu-content {
+  transform: translateY(-60px);
+}
+
+.example-1 .wrapper {
+  background: url(/image/김난희.jpg) 20% 1%/cover no-repeat;
+}
+
+.example-1 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-1 .date span {
+  display: block;
+  text-align: center;
+}
+.example-1 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-1 .date .month {
+  text-transform: uppercase;
+}
+.example-1 .date .month,
+.example-1 .date .year {
+  font-size: 12px;
+}
+.example-1 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-1 .title a {
+  color: gray;
+}
+.example-1 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-1 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-1 .menu-button span::after, .example-1 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-1 .menu-button span::before {
+  left: -10px;
+}
+.example-1 .menu-button span::after {
+  right: -10px;
+}
+.example-1 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-1 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-1 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-1 .menu-content span {
+  top: -10px;
+}
+
+
+
+.example-2 .wrapper {
+  background: url(/image/박시원.jpg) 20% 1%/cover no-repeat;
+  background-size: auto;
+}
+
+.example-2 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-2 .date span {
+  display: block;
+  text-align: center;
+}
+.example-2 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-2 .date .month {
+  text-transform: uppercase;
+}
+.example-2 .date .month,
+.example-2 .date .year {
+  font-size: 12px;
+}
+.example-2 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-2 .title a {
+  color: gray;
+}
+.example-2 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-2 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-2 .menu-button span::after, .example-2 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-2 .menu-button span::before {
+  left: -10px;
+}
+.example-2 .menu-button span::after {
+  right: -10px;
+}
+.example-2 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-2 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-2 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-2 .menu-content span {
+  top: -10px;
+}
+
+
+
+
+.example-3 .wrapper {
+  background: url(/image/윤해정.jpg) 20% 1%/cover no-repeat;
+}
+
+.example-3 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-3 .date span {
+  display: block;
+  text-align: center;
+}
+.example-3 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-3 .date .month {
+  text-transform: uppercase;
+}
+.example-3 .date .month,
+.example-3 .date .year {
+  font-size: 12px;
+}
+.example-3 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-3 .title a {
+  color: gray;
+}
+.example-3 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-3 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-3 .menu-button span::after, .example-3 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-3 .menu-button span::before {
+  left: -10px;
+}
+.example-3 .menu-button span::after {
+  right: -10px;
+}
+.example-3 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-3 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-3 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-3 .menu-content span {
+  top: -10px;
+}
+
+
+.example-4 .wrapper {
+  background: url(/image/홍지우.jpg) 20% 1%/cover no-repeat;
+}
+
+.example-4 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-4 .date span {
+  display: block;
+  text-align: center;
+}
+.example-4 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-4 .date .month {
+  text-transform: uppercase;
+}
+.example-4 .date .month,
+.example-4 .date .year {
+  font-size: 12px;
+}
+.example-4 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-4 .title a {
+  color: gray;
+}
+.example-4 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-4 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-4 .menu-button span::after, .example-4 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-4 .menu-button span::before {
+  left: -10px;
+}
+.example-4 .menu-button span::after {
+  right: -10px;
+}
+.example-4 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-4 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-4 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-4 .menu-content span {
+  top: -10px;
+}
+
+
+.example-5 .wrapper {
+  background: url(/image/홍유진.jpg) 20% 1%/cover no-repeat;
+}
+
+.example-5 .date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #77d7b9;
+  color: #fff;
+  padding: 0.8em;
+}
+.example-5 .date span {
+  display: block;
+  text-align: center;
+}
+.example-5 .date .day {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+.example-5 .date .month {
+  text-transform: uppercase;
+}
+.example-5 .date .month,
+.example-5 .date .year {
+  font-size: 12px;
+}
+.example-5 .content {
+  background-color: #fff;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.example-5 .title a {
+  color: gray;
+}
+.example-5 .menu-button {
+  position: absolute;
+  z-index: 999;
+  top: 16px;
+  right: 16px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.example-5 .menu-button span {
+  width: 5px;
+  height: 5px;
+  background-color: gray;
+  color: gray;
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+}
+.example-5 .menu-button span::after, .example-5 .menu-button span::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  position: absolute;
+  border-radius: 50%;
+}
+.example-5 .menu-button span::before {
+  left: -10px;
+}
+.example-5 .menu-button span::after {
+  right: -10px;
+}
+.example-5 .menu-content {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+  transform: translateY(0);
+}
+.example-5 .menu-content li {
+  width: 33.333333%;
+  float: left;
+  background-color: #77d7b9;
+  height: 60px;
+  position: relative;
+}
+.example-5 .menu-content a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+.example-5 .menu-content span {
+  top: -10px;
+}
